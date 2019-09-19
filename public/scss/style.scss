@@ -1,0 +1,23 @@
+$primary : #808000;
+// $primary-overlay: rgba(50,146,166,0.8);
+
+// navbar
+
+.content.homepage .navbar{
+  box-shadow : 2px 2px 5px $primary;
+  opacity: 0.9;
+  background: #fff;
+  .nav-item{
+    font-size: 1.2rem;
+    padding-right: 1.4rem;
+  }
+}
+
+.content.homepage .dropdown-menu{
+  border: none;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.content.homepage .dropdown-menu .dropdown-item{
+  font-size: 0.9rem;
+}

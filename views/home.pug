@@ -1,0 +1,35 @@
+
+extends layout
+
+block content
+  div.content.homepage
+    //- navbar
+    nav.navbar.navbar-expand-md.navbar-light.fixed-top.py-4#main-nav
+      .container-fluid
+        a.navbar-brand(href="/home")
+          h3.d-inline.align-middle Breeze
+        button.navbar-toggler(data-toggle="collapse" data-target="#navbarCollapse")
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarCollapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href="/home") Home
+            li.nav-item
+              a.nav-link(href="/about") About
+            li.nav-item.dropdown.mr-3
+              a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown") 
+                span Food
+              .dropdown-menu
+                a.dropdown-item(href="/spring") SPRING  
+                a.dropdown-item(href="/summer") SUMMER   
+                a.dropdown-item(href="/autumn") Autumn  
+                a.dropdown-item(href="/winter") Winter       
+            li.nav-item
+              a.nav-link(href="/contact") Contact
+      
+    //- homepage background picture
+    section.homepage-picture
+      .container-fluid
+        .col
+          .slider
+            

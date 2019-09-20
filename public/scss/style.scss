@@ -3,7 +3,7 @@ $primary : #808000;
 
 // navbar
 
-.content.homepage .navbar{
+.content.intropage .navbar{
   box-shadow : 2px 2px 5px $primary;
   opacity: 0.9;
   background: #fff;
@@ -13,11 +13,11 @@ $primary : #808000;
   }
 }
 
-.content.homepage .dropdown-menu{
+.content.intropage .dropdown-menu{
   border: none;
   background-color: rgba(0, 0, 0, 0.0);
 }
 
-.content.homepage .dropdown-menu .dropdown-item{
+.content.intropage .dropdown-menu .dropdown-item{
   font-size: 0.9rem;
 }

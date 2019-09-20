@@ -3,18 +3,12 @@ const router = express.Router();
 const IntroImage = require('../models/introimage')
 
 // get intro page
-router.get('/', function(req, res) {
-
+router.get('/', async function(req, res) {
   IntroImage.find({},(err,introimages)=>{
-    console.log(introimages);
+    res.render('intro', {introimages: introimages})   
+    console.log(introimages)
     
-    res.render('intro', {introimages: introimages})
   })
-
-
-    //create
-
-    //IntroImage.create({imagename:"testinsert"})
   
 })
 

@@ -16,7 +16,7 @@ block content
               a.nav-link(href="/home") Home
             li.nav-item
               a.nav-link(href="/about") About
-            li.nav-item.dropdown.mr-3
+            li.nav-item.dropdown
               a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown") 
                 span Food
               .dropdown-menu
@@ -28,7 +28,14 @@ block content
               a.nav-link(href="/contact") Contact
 
     //- homepage background picture
-    section.homepage-picture
-      .container-fluid 
-        img(src=introimages[0].imagename, alt="" )
-            
+    section#intro-image-section
+      .container-fluid
+        .slider
+          each introimage in introimages[0].imagename
+            .item
+              img(src=introimage)
+
+          
+  
+        
+              

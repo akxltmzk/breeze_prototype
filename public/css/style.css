@@ -1,14 +1,60 @@
-.content.intropage .navbar {
-  box-shadow: 2px 2px 5px #808000;
-  opacity: 0.9;
-  background: #fff; }
-  .content.intropage .navbar .nav-item {
-    font-size: 1.2rem;
-    padding-right: 1.4rem; }
+body{
+  margin-top: 94.5px;
+}
+
+/*----------------------- intro page -------------------- */
+
+/* nav-bar */
+
+
+.content.intropage .navbar .nav-item 
+{
+  font-size: 1.2rem;
+  padding-right: 1.4rem; 
+}
 
 .content.intropage .dropdown-menu {
   border: none;
-  background-color: rgba(0, 0, 0, 0); }
+  background-color: rgba(0, 0, 0, 0); 
+}
 
-.content.intropage .dropdown-menu .dropdown-item {
-  font-size: 0.9rem; }
+.content.intropage .dropdown-menu .dropdown-item 
+{
+  font-size: 0.9rem; 
+}
+
+/* intro-image-section */
+
+.content.intropage .slider{
+  height: 840px;
+  display: flex;
+  align-items: center;
+}
+
+.content.intropage .slider .item img{
+  display: block;
+  height:840px;
+  width: auto;
+  margin: 0 10px;
+}
+
+@media (max-width: 576px) { 
+
+  .content.intropage .slider{
+    height: 840px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .content.intropage .slider .item img{
+    display: block;
+    height:650px;
+    width: auto;
+    margin: 0 10px;
+
+  }
+ }
+
+
+/*----------------------- intro end -------------------- */
+
+

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 const IntroImageSchema = new mongoose.Schema({
-  imagename: String
+  imagename: [String]
 })
 
 const IntroImage = mongoose.model('IntroImage', IntroImageSchema)

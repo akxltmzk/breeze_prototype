@@ -20,7 +20,8 @@ body{
 
 .content.intropage .dropdown-menu .dropdown-item 
 {
-  font-size: 0.9rem; 
+  font-size:0.9rem; 
+
 }
 
 /* intro-image-section */
@@ -41,13 +42,13 @@ body{
 @media (max-width: 576px) { 
 
   .content.intropage .slider{
-    height: 840px;
+    height: 450px;
     display: flex;
     align-items: flex-start;
   }
   .content.intropage .slider .item img{
     display: block;
-    height:650px;
+    height:450px;
     width: auto;
     margin: 0 10px;
 

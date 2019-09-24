@@ -13,18 +13,13 @@
 /* intro-image-section */
 .content.intropage .slider {
   margin-top: 50px;
-  height: 1000px;
+  height: 900px;
   display: flex;
-  align-items: flex-start; }
-
-.content.intropage .item {
-  height: 80%;
-  position: relative;
-  top: 0; }
+  align-items: center; }
 
 .content.intropage .slider .item img {
   display: block;
-  height: 100%;
+  height: 840px;
   width: auto;
   margin: 0 10px; }
 

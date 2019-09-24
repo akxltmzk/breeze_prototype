@@ -10,31 +10,8 @@ $(function () {
   // ----------------- intropage --------------------//
   // ---------------------- -------------------------//
 
-  // ----- navbar ----- //
-
-  // 바디테그를 확장시킨다 . 드랍다운 메뉴가 눌리면.
-  // let bodyexpend = false; 
-
-  // $('#introdropdown').on("click",()=>{
-  //   if(!bodyexpend){
-  //     $('body').animate({
-  //       "margin-top" : "+=128px" 
-  //     })
-  //     bodyexpend = true
-  //   }
-  //   else{
-  //     $('body').animate({
-  //       "margin-top" : "-=128px"
-  //     }) 
-  //     bodyexpend = false
-  //   }
-  // })
-
-   // ----- intro-image-section ----- //
-
   $('.content.intropage .slider .item').click(function()
   {
-
     let windowWith = screen.availWidth
     let mousePosition_x = event.pageX
 
@@ -45,4 +22,16 @@ $(function () {
       $('html').animate( { scrollLeft: '-=460' }, 700)
     }
   })
+
+  // ------------------------------------------------//
+  // ----------------- aboutpage --------------------//
+  // ---------------------- -------------------------//
+
+   let headerimagepath = $('.content.aboutpage #headerimagepath').val();
+   $('.content.aboutpage #page-header').css
+    (
+      {'background' : 'url('+headerimagepath+')'},
+      {'background-color' : 'no-repeat'}
+    )
+  
 })

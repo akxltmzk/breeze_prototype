@@ -1,10 +1,9 @@
-
 extends layout
 
 block content
-  div.content.intropage
+  div.content.aboutpage
     navbar
-      nav.navbar.navbar-expand-sm.navbar-light.bg-white.fixed-top#main-nav
+      nav.navbar.navbar-expand-sm.navbar-light.bg-white#main-nav
         .container-fluid
           a.navbar-brand(href="/home") Breeze
           button.navbar-toggler(data-toggle="collapse" data-target="#navbarCollapse")
@@ -25,16 +24,14 @@ block content
                   a.dropdown-item(href="/winter") Winter       
               li.nav-item
                 a.nav-link(href="/contact") Contact
-
-    //- homepage background picture
-    section#intro-image-section
-      .container-fluid
-        .slider
-          each introimage in introimages[0].imagename
-            .item
-              img(src=introimage)
-
-          
-  
-        
-              
+    header#page-header
+      .dark-overlay
+        .container-fluid
+          .row
+            .col-md-6.m-auto.text-center.headerinfo
+              div.headerinfo-contents
+                h1 FOOD STYLIST
+                h2.text-muted Oh sukyung
+                span Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, inventore!
+                input#headerimagepath(type="hidden" value= aboutimages[0].headerimage) 
+            

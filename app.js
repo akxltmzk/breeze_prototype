@@ -6,10 +6,11 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 // routes
 const introRouter = require('./routes/intro')
+const aboutRouter = require('./routes/about')
 
 const app = express()
 
@@ -26,7 +27,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', introRouter)
-
+app.use('/', aboutRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +51,5 @@ mongoose.connect('mongodb://localhost:27017/breeze')
 // mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PWD+'@'+process.env.DB_HOST+'/multiracing', {
 //   useNewUrlParser: true
 // })
-
-
 
 module.exports = app

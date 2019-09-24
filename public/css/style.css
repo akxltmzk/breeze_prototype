@@ -1,6 +1,4 @@
 /* common */
-/*----------------------- intro page -------------------- */
-/* nav-bar */
 .navbar .navbar-brand {
   color: black;
   font-size: 30px; }
@@ -11,6 +9,7 @@
   padding-left: 1rem !important;
   padding-right: 1rem !important; }
 
+/*----------------------- intro page -------------------- */
 /* intro-image-section */
 .content.intropage .slider {
   margin-top: 50px;
@@ -24,7 +23,29 @@
   width: auto;
   margin: 0 10px; }
 
-/*----------------------- mobile-------------------- */
+/*----------------------- about page -------------------- */
+.content.aboutpage #page-header {
+  height: 300px;
+  color: #fff;
+  border-bottom: 1px #eee solid;
+  background-attachment: fixed; }
+
+.content.aboutpage .dark-overlay {
+  height: 300px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.content.aboutpage .headerinfo {
+  height: 299px; }
+
+.headerinfo-contents {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: 100%;
+  transform: translateY(-50%); }
+
+/*----------------------- mobile------------------------- */
 @media (max-width: 600px) {
   /* nav-bar */
   .navbar-nav, .dropdown-menu {

@@ -3,11 +3,10 @@ extends layout
 
 block content
   div.content.intropage
-    //- navbar
-    nav.navbar.navbar-expand-md.navbar-light.fixed-top.py-4#main-nav
+    navbar
+    nav.navbar.navbar-expand-sm.navbar-light.bg-white.fixed-top#main-nav
       .container-fluid
-        a.navbar-brand(href="/home")
-          h3.d-inline.align-middle Breeze
+        a.navbar-brand(href="/home") Breeze
         button.navbar-toggler(data-toggle="collapse" data-target="#navbarCollapse")
           span.navbar-toggler-icon
         .collapse.navbar-collapse#navbarCollapse
@@ -17,7 +16,7 @@ block content
             li.nav-item
               a.nav-link(href="/about") About
             li.nav-item.dropdown
-              a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown")#introdropdown 
+              a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown")
                 span Food
               .dropdown-menu
                 a.dropdown-item(href="/spring") SPRING  

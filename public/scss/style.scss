@@ -1,41 +1,68 @@
-$primary : #808000;
+/* common */
 
 body{
-  margin-top: 92.5px;
+
 }
 
-// --------- intro page------------ //
+/*----------------------- intro page -------------------- */
 
-// navbar
+/* nav-bar */
+.navbar .navbar-brand{
+  color: black;
+  font-size: 30px;
+}
 
-.content.intropage .navbar{
-  box-shadow : 2px 2px 5px $primary;
-  opacity: 0.9;
-  background: #fff;
-  .nav-item{
-    font-size: 1.2rem;
-    padding-right: 1.4rem;
+.navbar .nav-link{
+  text-transform: uppercase;
+  color: black !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+
+/* intro-image-section */
+
+.content.intropage .slider{
+  margin-top: 50px;
+  height: 900px;
+  display: flex;
+  align-items: center;
+}
+
+.content.intropage .slider .item img{
+  display: block;
+  height:840px;
+  width: auto;
+  margin: 0 10px;
+}
+/*----------------------- mobile-------------------- */
+
+@media (max-width: 600px) { 
+
+  /* nav-bar */
+  .navbar-nav,.dropdown-menu{
+    float: none;
+    display: block !important;
+    text-align: center;
+    margin-bottom: 40px;
+    border: none;
+  } 
+  .dropdown-item{
+    margin-bottom: 20px;
   }
-}
 
-.content.intropage .dropdown-menu{
-  border: none;
-  background-color: rgba(0, 0, 0, 0.0);
-}
+  /* intro-image-section */
+  .content.intropage .slider{
 
-.content.intropage .dropdown-menu .dropdown-item{
-  font-size: 0.9rem;
-}
-
-
-
-
-// .content.intropage .slider{
-//   width: 100%;
-//   height: 750px;
-//   margin: 100px auto;
-// }
-
-
-
-// --------- intro end------------ //
+    margin-top: 78px;
+    height: 450px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .content.intropage .slider .item img{
+    display: block;
+    height:450px;
+    width: auto;
+    margin: 0 10px;
+  }
+ }

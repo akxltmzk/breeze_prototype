@@ -3,18 +3,36 @@ extends layout
 
 block content
   .content.portfolio
-    header#portfolio-section
+    section#foodstyling-section
+      //- food styling header
       .container
         .row
           .col-md-12
-            .header-info
+            .foodstyling-header-info
               h3 FOOD STYLING
-    section.foodstyling-img
-      .container.my-4
+
+      //- food styling image
+     
+      .container
         .row
-          #food-image-container.mb-4
+          #food-image-wrap
             each foodstyling in  portfolioimages[0].foodstyling                          
-              img.mb-4.col-lg-4.col-md-12.mb-4(src=foodstyling)
+              img.col-lg-4.col-md-6.mb-4(src=foodstyling)
+
+    section#candle-section
+      //- candle header
+      .container
+        .row
+          .col-md-12
+            .candle-header-info
+              h3 CANDLE
+
+      //- candle image
+      .container
+        .row
+          #candle-image-wrap
+            each candle in  portfolioimages[0].candle                          
+              img.img-fluid.col-lg-4.col-md-6.mb-4(src=candle )
 
       
       

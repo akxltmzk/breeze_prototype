@@ -12,6 +12,7 @@ const mongoose = require('mongoose')
 const introRouter = require('./routes/intro')
 const aboutRouter = require('./routes/about')
 const portfolioRouter = require('./routes/portfolio')
+const orientationRouter = require('./routes/orientation')
 
 const app = express()
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', introRouter)
 app.use('/', aboutRouter)
 app.use('/', portfolioRouter)
+app.use('/', orientationRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

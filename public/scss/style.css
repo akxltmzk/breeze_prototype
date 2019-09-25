@@ -17,14 +17,24 @@ nav a {
 /*----------------------- intro page -------------------- */
 /* intro-image-section */
 .content.intropage .slider {
-  height: 90vh;
+  margin-top: 50px;
+  height: 100%;
   display: flex;
-  align-items: center; }
+  align-items: flex-start;
+  background: yellow; }
 
-.content.intropage .slider img {
+.content.intropage .item {
+  background: yellow;
   height: 80%;
+  position: relative;
+  top: 0; }
+
+.content.intropage .slider .item img {
+  background: red;
+  height: 100%;
   width: auto;
-  margin-right: 25px; }
+  margin-right: 25px;
+  image-orientation: from-image; }
 
 /*----------------------- about page -------------------- */
 .content {

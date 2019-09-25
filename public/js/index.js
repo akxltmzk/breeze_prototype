@@ -10,7 +10,7 @@ $(function () {
   // ----------------- intropage --------------------//
   // ---------------------- -------------------------//
 
-  $('.content.intropage .slider .item').click(function()
+  $('.content.intropage .slider').click(function()
   {
     let windowWith = screen.availWidth
     let mousePosition_x = event.pageX

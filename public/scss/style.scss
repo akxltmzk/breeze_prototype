@@ -27,25 +27,16 @@ nav a{
 /* intro-image-section */
 
 .content.intropage .slider{
-  margin-top: 50px;
-  height: 1000px;
+ // margin-top: 50px;
+  height: 90vh;
   display: flex;
-  align-items: flex-start;
-
+  align-items: center;
 }
 
-.content.intropage .item{
+.content.intropage .slider img{
   height: 80%;
-  position: relative;
-  top: 0;
-}
-
-.content.intropage .slider .item img{
-  display: block;
-  height: 100%;
   width: auto;
   margin-right: 25px;
-  image-orientation: from-image;
 }
 
 /*----------------------- about page -------------------- */

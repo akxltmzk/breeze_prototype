@@ -1,7 +1,10 @@
 /* common */
 
-body{
-  
+$primary : #8FBC8F;
+
+nav a{
+  color: #8FBC8F !important;
+  font-weight: 500;
 }
 
 .navbar .navbar-brand{
@@ -11,7 +14,8 @@ body{
 
 .navbar .nav-link{
   text-transform: uppercase;
-  color: black !important;
+  font-weight: 400;
+  color: #8FBC8F !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
 }
@@ -40,11 +44,15 @@ body{
   display: block;
   height: 100%;
   width: auto;
-  margin: 0 10px;
-  
+  margin: 0 25px;
+  image-orientation: from-image;
 }
 
 /*----------------------- about page -------------------- */
+
+.content{
+  margin-top: 71px;
+}
 
 
 .content.aboutpage #page-header{
@@ -85,6 +93,7 @@ body{
     margin-bottom: 40px;
     border: none;
   } 
+
   .dropdown-item{
     margin-bottom: 20px;
   }

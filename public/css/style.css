@@ -1,11 +1,16 @@
 /* common */
+nav a {
+  color: #8FBC8F !important;
+  font-weight: 500; }
+
 .navbar .navbar-brand {
   color: black;
   font-size: 30px; }
 
 .navbar .nav-link {
   text-transform: uppercase;
-  color: black !important;
+  font-weight: 400;
+  color: #8FBC8F !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important; }
 
@@ -26,9 +31,13 @@
   display: block;
   height: 100%;
   width: auto;
-  margin: 0 10px; }
+  margin: 0 25px;
+  image-orientation: from-image; }
 
 /*----------------------- about page -------------------- */
+.content {
+  margin-top: 71px; }
+
 .content.aboutpage #page-header {
   height: 300px;
   color: #fff;
@@ -75,5 +84,3 @@
     height: 450px;
     width: auto;
     margin: 0 10px; } }
-
-/*# sourceMappingURL=style.css.map */

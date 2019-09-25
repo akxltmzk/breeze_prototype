@@ -16,10 +16,10 @@ $(function () {
     let mousePosition_x = event.pageX
 
     if((windowWith/2 < mousePosition_x)){
-      $('html').animate( { scrollLeft: '+=460' }, 700)
+      $('html').stop().animate( { scrollLeft: '+=460' }, 700)
     }
     else{
-      $('html').animate( { scrollLeft: '-=460' }, 700)
+      $('html').stop().animate( { scrollLeft: '-=460' }, 700)
     }
   })
 

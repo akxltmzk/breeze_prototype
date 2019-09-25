@@ -31,7 +31,7 @@ nav a {
   display: block;
   height: 100%;
   width: auto;
-  margin: 0 25px;
+  margin-right: 25px;
   image-orientation: from-image; }
 
 /*----------------------- about page -------------------- */
@@ -58,6 +58,20 @@ nav a {
   left: 0px;
   width: 100%;
   transform: translateY(-50%); }
+
+/*----------------------- portfolio page -------------------- */
+.content.portfolio .header-info {
+  height: 200px;
+  border-bottom: #8FBC8F solid 2px; }
+
+.content.portfolio .header-info h3 {
+  color: #8FBC8F;
+  padding-top: 100px;
+  font-size: 3rem; }
+
+.content.portfolio img {
+  width: 500px;
+  height: auto; }
 
 /*----------------------- mobile------------------------- */
 @media (max-width: 600px) {

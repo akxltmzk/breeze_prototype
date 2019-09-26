@@ -4,23 +4,26 @@ extends layout
 block content
   .content.managerpage
     header#intro-manager-header
-      .container
+      .container-fluid
         .row
           .col-lg-12.col-md-4
             h1 Intro
     
     section.py-4#introedit
-      .container
-        .row
-          .col
-            .card-columns
-              each introimage in introimages[0].imagename                
-                img.img-fluid(src=introimage)
-                .card-body
-                  button button
+      .container-fluid
+        .row     
+          .card-columns 
+            each introimagepath in page[0].contents.content.galleries[0].paths  
+              .card.col-lg-4
+                img.img-fluid.card-img-top(src=introimagepath)
+                .card-body  
+                  button.btn-secondary UPLOAD
+                  button.btn-danger DELETE
 
 
-        
+
+
+      
 
 
 

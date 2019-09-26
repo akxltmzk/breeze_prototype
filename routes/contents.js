@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Page = require('../models/page')
+const _ = require('lodash')
 
 // ------------------------ intropage route ----------------------------//
 
 router.get('/', function(req, res) {
   Page.find({},(err,page)=>{
-    let gallerypaths = page[0].contents.content.galleries[0].images
-    console.log(gallerypaths);
-    
+    let gallerypaths = page[0].contents.content.galleries[0].images 
     res.render('intro', {gallerypaths: gallerypaths})     
   })
 })
@@ -16,8 +15,10 @@ router.get('/', function(req, res) {
 router.get('/home', function(req, res) {
   Page.find({},(err,page)=>{
     let gallerypaths = page[0].contents.content.galleries[0].images
-    console.log(gallerypaths);
-    
+   
+    // arrangy by index
+    gallerypaths =  _.sortBy(gallerypaths,'index')
+
     res.render('intro', {gallerypaths: gallerypaths})     
   })
 })
@@ -31,7 +32,7 @@ router.get('/about', function(req, res) {
   })
 })
 
-// ------------------------ portfolio route ----------------------------//
+// ------------------------ portfolio route ------------------------//
 
 router.get('/portfolio', function(req, res) {
   Page.find({},(err,page)=>{
@@ -39,6 +40,5 @@ router.get('/portfolio', function(req, res) {
     res.render('portfolio', {gallerypaths: gallerypaths})  
   })
 })
-
 
 module.exports = router;

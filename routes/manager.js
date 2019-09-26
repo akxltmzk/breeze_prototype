@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Page = require('../models/page')
-
+const multer  = require('multer')
 
 router.get('/manager', function(req, res) {
 

@@ -12,10 +12,10 @@ block content
     section.py-4#introedit
       .container-fluid
         .row          
-          each introimagepath in page[0].contents.content.galleries[0].paths  
+          each introimagepath in page[0].contents.content.galleries[0].images  
             .contents-wrap.col-lg-1  
               h3.text-center.text-muted 1
-              img.img-fluid.card-img-top(src=introimagepath)
+              img.img-fluid.card-img-top(src=introimagepath.path)
               .button-wrap
                 button.btn-primary Upload
                 button.btn-primary Delete

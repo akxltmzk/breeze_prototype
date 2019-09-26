@@ -9,11 +9,9 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 // routes
-const introRouter = require('./routes/intro')
-const aboutRouter = require('./routes/about')
-const portfolioRouter = require('./routes/portfolio')
+const contentsRouter = require('./routes/contents')
 const orientationRouter = require('./routes/orientation')
-
+const managerRouter = require('./routes/manager')
 const app = express()
 
 // view engine setup
@@ -28,10 +26,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', introRouter)
-app.use('/', aboutRouter)
-app.use('/', portfolioRouter)
+app.use('/', contentsRouter)
 app.use('/', orientationRouter)
+app.use('/', managerRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

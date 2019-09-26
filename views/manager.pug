@@ -1,0 +1,30 @@
+
+extends layout
+
+block content
+  .content.managerpage
+    header#intro-manager-header
+      .container
+        .row
+          .col-lg-12.col-md-4
+            h1 Intro
+    
+    section.py-4#introedit
+      .container
+        .row
+          .col
+            .card-columns
+              each introimage in introimages[0].imagename                
+                img.img-fluid(src=introimage)
+                .card-body
+                  button button
+
+
+        
+
+
+
+          
+  
+        
+              

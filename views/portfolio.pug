@@ -16,8 +16,8 @@ block content
       .container
         .row
           #food-image-wrap
-            each foodstyling in  portfolioimages[0].foodstyling                          
-              img.col-lg-4.col-md-6.mb-4(src=foodstyling)
+            each gallerypath in  gallerypaths[0].paths                          
+              img.col-lg-4.col-md-6.mb-4(src=gallerypath)
 
     section#candle-section
       //- candle header
@@ -31,8 +31,8 @@ block content
       .container
         .row
           #candle-image-wrap
-            each candle in  portfolioimages[0].candle                          
-              img.img-fluid.col-lg-4.col-md-6.mb-4(src=candle )
+            each gallerypath in  gallerypaths[1].paths                    
+              img.img-fluid.col-lg-4.col-md-6.mb-4(src=gallerypath )
 
       
       

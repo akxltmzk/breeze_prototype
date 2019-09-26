@@ -6,14 +6,18 @@ const Page = require('../models/page')
 
 router.get('/', function(req, res) {
   Page.find({},(err,page)=>{
-    let gallerypaths = page[0].contents.content.galleries[0].paths
+    let gallerypaths = page[0].contents.content.galleries[0].images
+    console.log(gallerypaths);
+    
     res.render('intro', {gallerypaths: gallerypaths})     
   })
 })
 
 router.get('/home', function(req, res) {
   Page.find({},(err,page)=>{
-    let gallerypaths = page[0].contents.content.galleries[0].paths
+    let gallerypaths = page[0].contents.content.galleries[0].images
+    console.log(gallerypaths);
+    
     res.render('intro', {gallerypaths: gallerypaths})     
   })
 })

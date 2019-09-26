@@ -6,10 +6,15 @@ const PageSchema = new mongoose.Schema({
     content : {
       headerimagePath: String,
       galleries: [
-        {name: String, paths: [String]}
+        {
+        name: String, 
+        images:[
+          {index : Number,
+           path : String}
+        ] 
+      } 
       ]
-    }
-  }
+  }}
 }) 
 
 const Page = mongoose.model('Page', PageSchema)

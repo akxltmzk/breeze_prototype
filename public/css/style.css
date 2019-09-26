@@ -56,6 +56,9 @@ nav a {
   width: 500px;
   height: auto; }
 
+.content.portfolio #food-image-wrap, #candle-image-wrap {
+  margin-top: 30px; }
+
 .content.portfolio .foodstyling-header-info {
   height: 200px;
   border-bottom: #8FBC8F solid 2px; }
@@ -64,9 +67,6 @@ nav a {
   color: #8FBC8F;
   padding-top: 100px;
   font-size: 3rem; }
-
-.content.portfolio #food-image-wrap, #candle-image-wrap {
-  margin-top: 30px; }
 
 .content.portfolio .candle-header-info {
   height: 200px;
@@ -78,9 +78,26 @@ nav a {
   font-size: 3rem; }
 
 /*----------------------- managerpage page -------------------- */
-.content.managerpage img {
-  height: 200px;
-  width: auto; }
+.content.managerpage .contents-wrap {
+  position: relative;
+  margin: 10px;
+  height: 280px;
+  border: #8FBC8F solid 1px;
+  border-radius: 5px; }
+
+.content.managerpage .contents-wrap h3 {
+  font-size: 1.5rem; }
+
+.content.managerpage .contents-wrap img {
+  margin-top: 10px; }
+
+.content.managerpage .contents-wrap .button-wrap {
+  position: absolute;
+  bottom: 0px; }
+
+.content.managerpage .contents-wrap button {
+  width: 100%;
+  margin-bottom: 5px; }
 
 /*----------------------- mobile------------------------- */
 @media (max-width: 600px) {

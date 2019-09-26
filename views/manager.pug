@@ -11,15 +11,14 @@ block content
     
     section.py-4#introedit
       .container-fluid
-        .row     
-          .card-columns 
-            each introimagepath in page[0].contents.content.galleries[0].paths  
-              .card.col-lg-4
-                img.img-fluid.card-img-top(src=introimagepath)
-                .card-body  
-                  button.btn-secondary UPLOAD
-                  button.btn-danger DELETE
-
+        .row          
+          each introimagepath in page[0].contents.content.galleries[0].paths  
+            .contents-wrap.col-lg-1  
+              h3.text-center.text-muted 1
+              img.img-fluid.card-img-top(src=introimagepath)
+              .button-wrap
+                button.btn-primary Upload
+                button.btn-primary Delete
 
 
 

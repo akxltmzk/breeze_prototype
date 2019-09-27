@@ -91,11 +91,11 @@ nav a {
 .content.managerpage .contents-wrap img {
   margin-top: 10px; }
 
-.content.managerpage .contents-wrap .button-wrap {
+.content.managerpage .contents-wrap .form-wrap {
   position: absolute;
   bottom: 0px; }
 
-.content.managerpage .contents-wrap button {
+.content.managerpage .contents-wrap form {
   width: 100%;
   margin-bottom: 5px; }
 

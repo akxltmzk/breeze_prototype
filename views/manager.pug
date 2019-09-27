@@ -11,15 +11,37 @@ block content
     
     section.py-4#introedit
       .container-fluid
-        .row          
-          each introimagepath in page[0].contents.content.galleries[0].images  
+        .row 
+          -
+            let values =[]
+            // 인트로 페이지 이미지를 몇개 넣을 수 있는지 설정
+            let arraysize = 10
+            for (let i = 0; i < arraysize; ++i) {
+              values[i] = i
+            }
+          - 
+          
+          each value in values
             .contents-wrap.col-lg-1  
-              h3.text-center.text-muted 1
-              img.img-fluid.card-img-top(src=introimagepath.path)
-              .button-wrap
-                button.btn-primary Upload
-                button.btn-primary Delete
+              h3.text-center.text-muted= value
+              //- db에 파일 path가 없으면, upload 버튼 활성
 
+              if typeof page[0].contents.content.galleries[0].images[value] ==='undefined'
+                p Empty ! 
+                form.form-wrap(action='/manager' id method='post', enctype='multipart/form-data')
+                  input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
+                                                              "imagename": 'introimage'+ value +'.jpg',
+                                                              "index" : value,
+                                                              "page" : "intropage" } )
+                  input(type='file', name='imageupload')
+                  input(type='submit')
+
+              //- db에 파일 path가 있으면, delete 버튼 활성
+
+              else
+                img.img-fluid.card-img-top(src= page[0].contents.content.galleries[0].images[value].path)
+                form.form-wrap(method='post')
+                  button.btn-danger Delete
 
 
       

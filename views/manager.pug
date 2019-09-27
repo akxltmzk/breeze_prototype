@@ -28,7 +28,7 @@ block content
 
               if typeof page[0].contents.content.galleries[0].images[value] ==='undefined'
                 p Empty ! 
-                form.form-wrap(action='/manager' id method='post', enctype='multipart/form-data')
+                form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
                   input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
                                                               "imagename": 'introimage'+ value +'.jpg',
                                                               "index" : value,
@@ -40,8 +40,11 @@ block content
 
               else
                 img.img-fluid.card-img-top(src= page[0].contents.content.galleries[0].images[value].path)
-                form.form-wrap(method='post')
-                  button.btn-danger Delete
+                form.form-wrap(action='/manager/deleteimage' method='post')
+                  input(type='hidden', name= 'data' , value= { "destination" :'public/images/intropage/introimage'+value+'.jpg' ,
+                                                              "index" : value,
+                                                              "page" : "intropage"})
+                  input(type='submit' value='delete').btn-danger
 
 
       

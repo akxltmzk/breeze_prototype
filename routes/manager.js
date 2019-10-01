@@ -3,6 +3,7 @@ const router = express.Router()
 const Page = require('../models/page')
 const multer  = require('multer')
 const fs = require('fs')
+const _ = require('lodash')
 
 // multer
 let storage = multer.diskStorage({
@@ -42,8 +43,6 @@ router.post('/manager/deleteimage',async (req,res)=>{
 })
 
 
-
-
 router.get('/manager', function(req, res) {
   // send intro image pug
   Page.find({},(err,page)=>{
@@ -70,30 +69,28 @@ function IntroDBdataUpdate(postdata){
 }
 
 function IntroDBdataDelete(postdata){
-  // delete image
-  
+
+  // delete image in file
   const path = postdata.destination
 
-  // try{
-  //   fs.unlinkSync(path)
+  try{
+    fs.unlinkSync(path)
+  }
+  catch(err){
+    console.log(err)
+  }
 
-  // }
-  // catch(err){
-  //   console.log(err)
-  // }
-
-  // delete mongo data
+  // delete image path in mongo data
   return new Promise((resolve, reject) => {  
     Page.findOne({'pagename':'intro'},(err,page) => {
-      let introimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "intropageimage"})
-    
-      introimagelayer.images.shift({
-        index : postdata.index ,
-        path: 'images/intropage/introimage'+postdata.index+'.jpg'}
-      )
+      let introImageLayer = page.contents.content.galleries.find(function (obj) {return obj.name === "intropageimage"}).images   
+     
 
+    
+     
       page.save()
       resolve()
+   
     })
   })
 }

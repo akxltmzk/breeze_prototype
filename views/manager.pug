@@ -21,36 +21,34 @@ block content
             }
           - 
           each value in values
-              .contents-wrap.col-lg-1  
-                h3.text-center.text-muted= value
-                - 
-                  let imagepath = null
-                  let imageArray = page[2].contents.content.galleries[0].images
-                  for (let i =0; i < imageArray.length; i++){
-                    if (imageArray[i].index === value)
-                      imagepath = imageArray[i]
-                  }
-                -
-                if imagepath === null 
-                  p Empty ! 
-                  form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
-                    input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
-                                                                "imagename": 'introimage'+ value +'.jpg',
-                                                                "index" : value,
-                                                                "page" : "intropage" } )
-                    input(type='file', name='imageupload')
-                    input(type='submit')
+            .contents-wrap.col-lg-1  
+              h3.text-center.text-muted= value
+              - 
+                let imagepath = null
+                let imageArray = page[2].contents.content.galleries[0].images
+                for (let i =0; i < imageArray.length; i++){
+                  if (imageArray[i].index === value)
+                    imagepath = imageArray[i]
+                }
+              -
+              if imagepath === null 
+                p Empty ! 
+                form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
+                  input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
+                                                              "imagename": 'introimage'+ value +'.jpg',
+                                                              "index" : value,
+                                                              "page" : "intropage" } )
+                  input(type='file', name='imageupload')
+                  input(type='submit')
 
-                else
-                  img.img-fluid.card-img-top(src= imagepath.path)
-                  p= imagepath.path
-                  p= imagepath.index
-                  form.form-wrap(action='/manager/deleteimage' method='post')
-                    input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath.path ,
-                                                                "index" : imagepath.index,
-                                                                "page" : "intropage"})
-                    input(type='submit' value='delete').btn-danger
+              else
+                img.img-fluid.card-img-top(src= imagepath.path)
+                form.form-wrap(action='/manager/deleteimage' method='post')
+                  input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath.path ,
+                                                              "index" : imagepath.index,
+                                                              "page" : "intropage"})
+                  input(type='submit' value='delete').btn-danger
 
-   
-        
-              
+  
+      
+            

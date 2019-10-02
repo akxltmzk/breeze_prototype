@@ -52,7 +52,7 @@ router.get('/manager', function(req, res) {
 
 /*------------------------------ -function --------------------------------------*/
 
-//  intro
+// intro
 
 function IntroDBdataUpdate(postdata){
   return new Promise((resolve, reject) => {  
@@ -84,10 +84,8 @@ function IntroDBdataDelete(postdata){
   return new Promise((resolve, reject) => {  
     Page.findOne({'pagename':'intro'},(err,page) => {
       let introImageLayer = page.contents.content.galleries.find(function (obj) {return obj.name === "intropageimage"}).images   
-     
-
-    
-     
+      let image = introImageLayer.find(function(obj){return obj.index == postdata.index})
+      introImageLayer.pull(image)
       page.save()
       resolve()
    

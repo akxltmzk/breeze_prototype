@@ -52,7 +52,7 @@ router.get('/manager', function(req, res) {
 
 /*------------------------------ -function --------------------------------------*/
 
-// intro
+// intro part manager function
 
 function IntroDBdataUpdate(postdata){
   return new Promise((resolve, reject) => {  

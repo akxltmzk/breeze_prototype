@@ -118,27 +118,27 @@ nav a{
 // ----------------- managerpage ------------------//
 // ------------------------------------------------//
 
-.content.managerpage .contents-wrap {
+.content.managerpage .intro-contents-wrap {
   position: relative;
   margin : 10px;
   height: 280px;
   border: #8FBC8F solid 1px;
   border-radius: 5px;
 }
-.content.managerpage .contents-wrap h3{
+.content.managerpage .intro-contents-wrap h3{
   font-size: 1.5rem;
 }
 
-.content.managerpage .contents-wrap img{
+.content.managerpage .intro-contents-wrap img{
   margin-top: 10px;
 }
 
-.content.managerpage .contents-wrap .form-wrap{
+.content.managerpage .intro-contents-wrap .form-wrap{
   position:absolute; bottom:0px;
 
  }
 
-.content.managerpage .contents-wrap form{
+.content.managerpage .intro-contents-wrap form{
  width: 100%;
  margin-bottom: 5px;
 }

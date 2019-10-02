@@ -3,25 +3,26 @@ extends layout
 
 block content
   .content.managerpage
-    header#intro-manager-header
+    //- intro page manager part
+    header
       .container-fluid
         .row
           .col-lg-12.col-md-4
             h1 Intro
     
-    section.py-4#introedit
+    section.py-4
       .container-fluid
         .row 
           -
             let values =[]
             // 인트로 페이지 이미지를 몇개 넣을 수 있는지 설정
-            let arraysize = 10
+            let arraysize = 11
             for (let i = 0; i < arraysize; ++i) {
               values[i] = i
             }
           - 
           each value in values
-            .contents-wrap.col-lg-1  
+            .intro-contents-wrap.col-lg-1  
               h3.text-center.text-muted= value
               - 
                 let imagepath = null
@@ -49,6 +50,16 @@ block content
                                                               "page" : "intropage"})
                   input(type='submit' value='delete').btn-danger
 
-  
-      
+    //- about page manager part 
+    header
+      .container-fluid
+        .row
+          .col-lg-12.col-md-4
+            h1 About   
+
+    section.py-4
+      .container-fluid
+        .row
+          
             
+                 

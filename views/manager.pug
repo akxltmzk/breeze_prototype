@@ -23,7 +23,7 @@ block content
             }
           - 
           each value in values
-            .intro-contents-wrap.col-lg-1  
+            .contents-wrap.col-lg-1  
               h3.text-center.text-muted= value
               - 
                 let imagepath = null
@@ -34,7 +34,7 @@ block content
                 }
               -
               if imagepath === null 
-                p Empty ! 
+                p.text-center Empty ! 
                 form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
                   input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
                                                               "imagename": 'introimage'+ value +'.jpg',
@@ -49,7 +49,7 @@ block content
                   input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath.path ,
                                                               "index" : imagepath.index,
                                                               "page" : "intropage"})
-                  input(type='submit' value='delete').btn-danger
+                  input(type='submit' value='삭 제').btn-danger
 
     //- about manager part 
 
@@ -59,8 +59,33 @@ block content
           h1 ABOUT   
 
     section.py-4
+      h3.ml-2.text-muted headerimage
       .container-fluid
         .row
-      
+          .contents-wrap.col-lg-1  
+            - 
+              let imagepath = page[1].contents.content.headerimagePath
+            -
+            if imagepath === '' 
+              p.text-center Empty ! 
+              form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
+                input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
+                                                            "imagename": 'introimage'+ value +'.jpg',
+                                                            "index" : value,
+                                                            "page" : "intropage" } )
+                input(type='file', name='imageupload')
+                input(type='submit' value='업로드')
+
+            else
+              p= imagepath
+              img.img-fluid.card-img-top(src= imagepath.path)
+              form.form-wrap(action='/manager/deleteimage' method='post')
+                input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath.path ,
+                                                            "index" : imagepath.index,
+                                                            "page" : "intropage"})
+                input(type='submit' value='삭 제').btn-danger          
+
+
+
             
                  

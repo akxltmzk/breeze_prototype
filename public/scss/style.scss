@@ -99,8 +99,6 @@ nav a{
   font-size: 3rem;
 }
 
-
-
 // candle
 
 .content.portfolio .candle-header-info{
@@ -118,30 +116,40 @@ nav a{
 // ----------------- managerpage ------------------//
 // ------------------------------------------------//
 
-.content.managerpage .intro-contents-wrap {
+// intro 
+
+.content.managerpage .contents-wrap {
   position: relative;
   margin : 10px;
   height: 280px;
   border: #8FBC8F solid 1px;
   border-radius: 5px;
 }
-.content.managerpage .intro-contents-wrap h3{
+
+.content.managerpage .contents-wrap h3{
   font-size: 1.5rem;
 }
 
-.content.managerpage .intro-contents-wrap img{
+.content.managerpage .contents-wrap img{
   margin-top: 10px;
 }
 
-.content.managerpage .intro-contents-wrap .form-wrap{
-  position:absolute; bottom:0px;
+.content.managerpage .contents-wrap .form-wrap{
+  position:absolute; 
+  bottom:0px;
+  width: 100%;
 
  }
 
-.content.managerpage .intro-contents-wrap form{
- width: 100%;
- margin-bottom: 5px;
-}
+ .content.managerpage .contents-wrap .form-wrap input{
+  position: relative;
+  width: 100%;
+  right: 15px;
+  border-radius: 3px;
+
+ }
+
+
 
 // ------------------------------------------------//
 // ----------------- mobiles ------------------//

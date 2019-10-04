@@ -2,13 +2,14 @@
 extends layout
 
 block content
-  .content.managerpage
-    //- intro page manager part
-    header
-      .container-fluid
-        .row
-          .col-lg-12.col-md-4
-            h1 Intro
+  .content.managerpage    
+
+    //- intro manager part
+
+    .container-fluid
+      .row
+        .col-lg-12.col-md-4
+          h1 INTRO
     
     section.py-4
       .container-fluid
@@ -26,7 +27,7 @@ block content
               h3.text-center.text-muted= value
               - 
                 let imagepath = null
-                let imageArray = page[2].contents.content.galleries[0].images
+                let imageArray = page[0].contents.content.galleries[0].images
                 for (let i =0; i < imageArray.length; i++){
                   if (imageArray[i].index === value)
                     imagepath = imageArray[i]
@@ -50,16 +51,16 @@ block content
                                                               "page" : "intropage"})
                   input(type='submit' value='delete').btn-danger
 
-    //- about page manager part 
-    header
-      .container-fluid
-        .row
-          .col-lg-12.col-md-4
-            h1 About   
+    //- about manager part 
+
+    .container-fluid
+      .row
+        .col-lg-12.col-md-4
+          h1 ABOUT   
 
     section.py-4
       .container-fluid
         .row
-          
+      
             
                  

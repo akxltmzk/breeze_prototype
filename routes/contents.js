@@ -7,14 +7,14 @@ const _ = require('lodash')
 
 router.get('/', function(req, res) {
   Page.find({},(err,page)=>{
-    let gallerypaths = page[2].contents.content.galleries[0].images 
+    let gallerypaths = page[0].contents.content.galleries[0].images 
     res.render('intro', {gallerypaths: gallerypaths})     
   })
 })
 
 router.get('/home', function(req, res) {
   Page.find({},(err,page)=>{
-    let gallerypaths = page[2].contents.content.galleries[0].images
+    let gallerypaths = page[0].contents.content.galleries[0].images
    
     // arrangy by index
     gallerypaths =  _.sortBy(gallerypaths,'index')
@@ -27,7 +27,7 @@ router.get('/home', function(req, res) {
 
 router.get('/about', function(req, res) {
   Page.find({},(err,page)=>{
-    let headerimagePath = page[0].contents.content.headerimagePath
+    let headerimagePath = page[1].contents.content.headerimagePath
     res.render('about', {headerimagePath: headerimagePath})     
   })
 })
@@ -36,7 +36,7 @@ router.get('/about', function(req, res) {
 
 router.get('/portfolio', function(req, res) {
   Page.find({},(err,page)=>{
-    let gallerypaths = page[1].contents.content.galleries
+    let gallerypaths = page[2].contents.content.galleries
     res.render('portfolio', {gallerypaths: gallerypaths})  
   })
 })

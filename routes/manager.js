@@ -19,9 +19,17 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage: storage})
 
-/* ---------------------------------------------------------------------------------------- */
+/* -------------------------------- post --------------------------------------- */
 
+// create db(initialize)
+router.post('/manager/createdb',(req,res)=>{
 
+  CreateDB()
+  
+  res.redirect('/manager')  
+})
+
+// upload data 
 router.post('/manager/uploadimage',upload.single('imageupload'),async (req,res)=>{
 
   let postData = JSON.parse(req.body.data)
@@ -32,6 +40,7 @@ router.post('/manager/uploadimage',upload.single('imageupload'),async (req,res)=
   res.redirect('/manager')     
 })
 
+// delete data
 router.post('/manager/deleteimage',async (req,res)=>{
 
   let postData = JSON.parse(req.body.data)
@@ -42,7 +51,9 @@ router.post('/manager/deleteimage',async (req,res)=>{
   res.redirect('/manager')     
 })
 
+/* -------------------------------- get --------------------------------------- */
 
+// render manager page
 router.get('/manager', function(req, res) {
   // send intro image pug
   Page.find({},(err,page)=>{
@@ -50,7 +61,77 @@ router.get('/manager', function(req, res) {
   })
 })
 
-/*------------------------------ -function --------------------------------------*/
+// render create db page
+router.get('/manager-createdb', function(req, res) {
+  res.render('manager-createdb')     
+})
+
+/*--------------------------------function --------------------------------------*/
+
+// create db , db를 클라우드에 올리기전에 db를 생성하는 기능(프로젝트 완료후 삭제)
+async function CreateDB(){
+  await introdb()
+  await aboutdb()
+  await portfoliodb()
+}
+
+function introdb(){
+  Page.create( { pagename:'intro' , 
+    contents:{
+      content:{
+        headerimagePath:'',
+        galleries:[
+          {
+            name: 'intropageimage',
+            images:[
+
+            ]
+          }
+        ]
+      }
+    }
+    } 
+  )
+}
+
+function aboutdb(){
+  Page.create( { pagename:'about' , 
+  contents:{
+    content:{
+      headerimagePath:'',
+      galleries:[
+        {
+          name: 'aboutpageimage',
+          images:[]
+        }
+        ]
+      }
+    }
+    } 
+  )
+}
+
+function portfoliodb(){
+  Page.create( { pagename:'portfolio' , 
+  contents:{
+    content:{
+      headerimagePath:'',
+      galleries:[
+          {
+            name: 'foodstyling',
+            images:[]
+          },
+          {
+            name: 'candle',
+            images:[]
+          }
+        ]
+      }
+    }
+    } 
+)
+}
+
 
 // intro part manager function
 

@@ -105,7 +105,7 @@ block content
                 input(type='hidden', name= 'data' , value= {
                                                             "section" : "foodstyling",
                                                             "destination" : 'public/images/portfoliopage/foodstyling/foodstyling'+ image.index+'.jpg',
-                                                            "index" : image.index,
+                                                            "id" : image.id,
                                                             "page" : "portfoliopage"})
                 input(type='submit' value='삭 제').btn-danger
 
@@ -117,8 +117,7 @@ block content
               input(type='hidden', name= 'data' ,value= { 
                                                           "section" : "foodstyling",
                                                           "destination" : 'public/images/portfoliopage/foodstyling', 
-                                                          "imagename": 'foodstyling'+ foodstyling_gallery.length +'.jpg',
-                                                          "index" : foodstyling_gallery.length,                                                         
+                                                          "imagename": 'foodstyling'+ foodstyling_gallery.length +'.jpg',                                                        
                                                           "page" : "portfoliopage" } )
               input(type='file', name='imageupload')
               input(type='submit')

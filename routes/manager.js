@@ -235,7 +235,7 @@ function PortfolioDBdataUpdate(postdata){
       {
         let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"})
         foodstylingimagelayer.images.push({
-          index : postdata.index ,
+          index : '' ,
           path: 'images/portfoliopage/foodstyling/'+ postdata.imagename}
         )
         page.save()
@@ -265,10 +265,10 @@ function PortfolioDBdataDelete(postdata){
       {
 
         let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"}).images   
-        let image = foodstylingimagelayer.find(function(obj){return obj.index == postdata.index})
+        let image = foodstylingimagelayer.find(function(obj){return obj.id == postdata.id})
         foodstylingimagelayer.pull(image)
         page.save()
-      }
+      }  
       resolve()
    
     })

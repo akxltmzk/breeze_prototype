@@ -38,6 +38,8 @@ router.post('/manager/uploadimage',upload.single('imageupload'),async (req,res)=
     await IntroDBdataUpdate(postData)
   else if(postData.page === 'aboutpage')
     await AboutDBdataUpdate(postData)
+  else if(postData.page === 'portfoliopage')
+    await PortfolioDBdataUpdate(postData)
 
   res.redirect('/manager')     
 })
@@ -50,7 +52,9 @@ router.post('/manager/deleteimage',async (req,res)=>{
   if(postData.page === 'intropage')
     await IntroDBdataDelete(postData)
   else if(postData.page === 'aboutpage')
-    await AboutDBdataDelete(postData)  
+    await AboutDBdataDelete(postData) 
+  else if(postData.page === 'portfoliopage')
+    await PortfolioDBdataDelete(postData)
 
   res.redirect('/manager')     
 })
@@ -58,10 +62,18 @@ router.post('/manager/deleteimage',async (req,res)=>{
 /* -------------------------------- get --------------------------------------- */
 
 // render manager page
-router.get('/manager', function(req, res) {
-  // send intro image pug
-  Page.find({},(err,page)=>{
-    res.render('manager',{page:page})     
+router.get('/manager', async function(req, res) {
+  // send db data to pug
+  let introPage = await Page.find({pagename: "intro"})
+  let aboutPage = await Page.find({pagename: "about"})
+  let portfolioPage = await Page.find({pagename: "portfolio"})
+
+  Page.find ({},(err,page)=>{
+    res.render('manager',{
+      introPage : introPage ,
+      aboutPage : aboutPage ,
+      portfolioPage : portfolioPage
+    })     
   })
 })
 
@@ -191,7 +203,6 @@ function AboutDBdataUpdate(postdata){
   })
 }
 
-
 function AboutDBdataDelete(postdata){
 
   // delete image in file
@@ -214,5 +225,55 @@ function AboutDBdataDelete(postdata){
     })
   })
 }
+
+// portfolio part manager function
+
+function PortfolioDBdataUpdate(postdata){
+  return new Promise((resolve, reject) => {  
+    Page.findOne({'pagename':'portfolio'},(err,page) => {
+      if(postdata.section === 'foodstyling')
+      {
+        let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"})
+        foodstylingimagelayer.images.push({
+          index : postdata.index ,
+          path: 'images/portfoliopage/foodstyling/'+ postdata.imagename}
+        )
+        page.save()
+      }    
+
+      resolve()
+    })
+  })
+}
+
+function PortfolioDBdataDelete(postdata){
+
+  // delete image in file
+  const path = postdata.destination
+
+  try{
+    fs.unlinkSync(path)
+  }
+  catch(err){
+    console.log(err)
+  }
+
+  // delete image path in mongo data
+  return new Promise((resolve, reject) => {  
+    Page.findOne({'pagename':'portfolio'},(err,page) => {
+      if(postdata.section === 'foodstyling')
+      {
+
+        let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"}).images   
+        let image = foodstylingimagelayer.find(function(obj){return obj.index == postdata.index})
+        foodstylingimagelayer.pull(image)
+        page.save()
+      }
+      resolve()
+   
+    })
+  })
+}
+
 
 module.exports = router

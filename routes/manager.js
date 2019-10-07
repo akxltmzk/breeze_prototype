@@ -36,6 +36,8 @@ router.post('/manager/uploadimage',upload.single('imageupload'),async (req,res)=
 
   if(postData.page === 'intropage')
     await IntroDBdataUpdate(postData)
+  else if(postData.page === 'aboutpage')
+    await AboutDBdataUpdate(postData)
 
   res.redirect('/manager')     
 })
@@ -47,7 +49,9 @@ router.post('/manager/deleteimage',async (req,res)=>{
 
   if(postData.page === 'intropage')
     await IntroDBdataDelete(postData)
-    
+  else if(postData.page === 'aboutpage')
+    await AboutDBdataDelete(postData)  
+
   res.redirect('/manager')     
 })
 
@@ -174,5 +178,41 @@ function IntroDBdataDelete(postdata){
   })
 }
 
+// about part manager function
+
+function AboutDBdataUpdate(postdata){
+  return new Promise((resolve, reject) => {    
+    Page.findOne({'pagename':'about'},(err,page) => {
+      page.contents.content.headerimagePath = 'images/aboutpage/headerimage.jpg'
+      page.save() 
+      resolve()
+    })
+
+  })
+}
+
+
+function AboutDBdataDelete(postdata){
+
+  // delete image in file
+  const path = postdata.destination
+
+  try{
+    fs.unlinkSync(path)
+  }
+  catch(err){
+    console.log(err)
+  }
+
+  // delete image path in mongo data
+
+  return new Promise((resolve, reject) => {    
+    Page.findOne({'pagename':'about'},(err,page) => {
+      page.contents.content.headerimagePath = ''
+      page.save()     
+      resolve()      
+    })
+  })
+}
 
 module.exports = router

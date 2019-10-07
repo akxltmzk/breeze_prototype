@@ -69,20 +69,16 @@ block content
             if imagepath === '' 
               p.text-center Empty ! 
               form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
-                input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
-                                                            "imagename": 'introimage'+ value +'.jpg',
-                                                            "index" : value,
-                                                            "page" : "intropage" } )
+                input(type='hidden', name= 'data' ,value= { "destination" :'public/images/aboutpage', 
+                                                            "imagename": 'headerimage.jpg',
+                                                            "page" : "aboutpage" } )
                 input(type='file', name='imageupload')
                 input(type='submit' value='업로드')
-
             else
-              p= imagepath
-              img.img-fluid.card-img-top(src= imagepath.path)
+              img.img-fluid.card-img-top(src= imagepath)
               form.form-wrap(action='/manager/deleteimage' method='post')
-                input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath.path ,
-                                                            "index" : imagepath.index,
-                                                            "page" : "intropage"})
+                input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath ,
+                                                            "page" : "aboutpage"})
                 input(type='submit' value='삭 제').btn-danger          
 
 

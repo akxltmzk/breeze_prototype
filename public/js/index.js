@@ -28,7 +28,7 @@ $(function () {
   // ----------------- aboutpage --------------------//
   // ---------------------- -------------------------//
 
-   let headerimagepath = $('.content.aboutpage #headerimagepath').val();
+   let headerimagepath = $('.content.aboutpage #headerimagepath').val()
    $('.content.aboutpage #page-header').css
     (
       {'background' : 'url('+headerimagepath+')'},

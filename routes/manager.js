@@ -5,14 +5,14 @@ const multer  = require('multer')
 const fs = require('fs')
 const _ = require('lodash')
 
-// multer
+// multer(file uploader)
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let destination = JSON.parse(req.body.data).destination
     cb(null, destination)
   },
   filename: function (req, file, cb) {
-   
+    // upload with filename
     cb(null, file.originalname)
   }
 })
@@ -23,16 +23,14 @@ let upload = multer({storage: storage})
 
 // create db(initialize)
 router.post('/manager/createdb',(req,res)=>{
-
   CreateDB()
-  
   res.redirect('/manager')  
 })
 
 // upload data 
 router.post('/manager/uploadimage',upload.single('imageupload'),async (req,res)=>{
 
-
+  // req can access multer file mathod, so bring upload file name
   let filename = req.file.originalname
   let postData = JSON.parse(req.body.data)
 
@@ -86,7 +84,7 @@ router.get('/manager-createdb', function(req, res) {
 
 /*--------------------------------function --------------------------------------*/
 
-// create db , db를 클라우드에 올리기전에 db를 생성하는 기능(프로젝트 완료후 삭제)
+// create db - db를 클라우드에 올리기전에 db를 생성하는 기능(프로젝트 완료 후 삭제)
 async function CreateDB(){
   await introdb()
   await aboutdb()
@@ -233,6 +231,7 @@ function AboutDBdataDelete(postdata){
 function PortfolioDBdataUpdate(postdata,filename){
   return new Promise((resolve, reject) => {  
     Page.findOne({'pagename':'portfolio'},(err,page) => {
+      // food styling image path update on db
       if(postdata.section === 'foodstyling')
       {
         let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"})
@@ -240,9 +239,20 @@ function PortfolioDBdataUpdate(postdata,filename){
           index : postdata.index ,
           path: 'images/portfoliopage/foodstyling/'+filename}
         )
-        page.save()
-      }    
+      }
 
+      // candle image path update on db
+      else if(postdata.section === 'candle')
+      {
+        let candleimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "candle"})
+        candleimagelayer.images.push({
+          index : postdata.index ,
+          path: 'images/portfoliopage/candle/'+filename}
+        )   
+      }
+
+      // db save
+      page.save()
       resolve()
     })
   })
@@ -263,13 +273,21 @@ function PortfolioDBdataDelete(postdata){
   // delete image path in mongo data
   return new Promise((resolve, reject) => {  
     Page.findOne({'pagename':'portfolio'},(err,page) => {
+      // food styling image path update on db
       if(postdata.section === 'foodstyling')
       {
         let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"}).images   
         let image = foodstylingimagelayer.find(function(obj){return obj.id == postdata.id})
         foodstylingimagelayer.pull(image)
-        page.save()
       }  
+      // candle image path update on db
+      else if(postdata.section === 'candle')
+      {
+        let candleimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "candle"}).images   
+        let image = candleimagelayer.find(function(obj){return obj.id == postdata.id})
+        candleimagelayer.pull(image)
+      }  
+      page.save()
       resolve()
    
     })

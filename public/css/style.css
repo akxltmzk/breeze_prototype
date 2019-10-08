@@ -29,25 +29,44 @@ nav a {
   margin-top: 71px; }
 
 .content.aboutpage #page-header {
-  height: 300px;
+  margin-top: 100px;
+  height: 600px;
   color: #fff;
-  border-bottom: 1px #eee solid;
-  background-attachment: fixed; }
+  border-bottom: 1px #eee solid; }
 
 .content.aboutpage .dark-overlay {
-  height: 300px;
+  height: 600px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7); }
 
 .content.aboutpage .headerinfo {
-  height: 299px; }
+  height: 300px; }
 
-.headerinfo-contents {
+.content.aboutpage .headerinfo-contents {
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 0px;
   width: 100%;
   transform: translateY(-50%); }
+
+.content.aboutpage .about-video-indicator {
+  margin: 40px 0 40px 60px;
+  border: #F05E56 solid 1px;
+  border-radius: 30px;
+  background-color: #F05E56;
+  line-height: 53px;
+  width: 142px;
+  text-align: center;
+  vertical-align: middle; }
+
+.content.aboutpage .about-video-indicator span {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'open sans',sans-serif;
+  font-weight: bold; }
+
+.content.aboutpage .about-video-wrap iframe {
+  margin: 10px; }
 
 .content.portfolio img {
   width: 500px;

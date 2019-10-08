@@ -8,11 +8,23 @@ block content
         .container-fluid
           .row
             .col-md-6.m-auto.text-center.headerinfo
-              div.headerinfo-contents
+              .headerinfo-contents
                 h1 FOOD STYLIST
                 h2.text-primary sookyung Oh 
                 span Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, inventore!
                 input#headerimagepath(type="hidden" value= headerimagePath) 
                 p= headerimagePath
+      
+    section#video-play
+      .row
+        .col
+          .container
+            .about-video-indicator
+              span VIDEO CLIPS
+            .about-video-wrap.text-center.mt-3
+              iframe(width="480" height="270" allowfullscreen="allowfullscreen" frameBorder="0" src="https://www.youtube.com/embed/6wuVin0KnG0")
+              iframe(width="480" height="270" allowfullscreen="allowfullscreen" frameBorder="0" src="https://www.youtube.com/embed/xwvjezWrVKA")
+              iframe(width="480" height="270" allowfullscreen="allowfullscreen" frameBorder="0" src="https://www.youtube.com/embed/TeHTlibljVE")
+              iframe(width="480" height="270" allowfullscreen="allowfullscreen" frameBorder="0" src="https://www.youtube.com/embed/iXxQujmYLus")
 
             

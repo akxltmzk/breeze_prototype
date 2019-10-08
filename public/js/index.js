@@ -32,7 +32,8 @@ $(function () {
    $('.content.aboutpage #page-header').css
     (
       {'background' : 'url('+headerimagepath+')'},
-      {'background-color' : 'no-repeat'}
+      {'background-color' : 'no-repeat'},
+      {'background-attachment': 'fixed'}
     )
 
   // ------------------------------------------------//

@@ -37,14 +37,13 @@ block content
                 p.text-center Empty ! 
                 form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
                   input(type='hidden', name= 'data' ,value= { "destination" :'public/images/intropage', 
-                                                              "imagename": 'introimage'+ value +'.jpg',
                                                               "index" : value,
                                                               "page" : "intropage" } )
                   input(type='file', name='imageupload')
                   input(type='submit')
 
               else
-                img.img-fluid.card-img-top(src= imagepath.path)
+                img.img-fluid.card-img-top(src=imagepath.path)
                 form.form-wrap(action='/manager/deleteimage' method='post')
                   input(type='hidden', name= 'data' , value= { "destination" : 'public/' + imagepath.path ,
                                                               "index" : imagepath.index,
@@ -104,20 +103,19 @@ block content
               form.form-wrap(action='/manager/deleteimage' method='post')
                 input(type='hidden', name= 'data' , value= {
                                                             "section" : "foodstyling",
-                                                            "destination" : 'public/images/portfoliopage/foodstyling/foodstyling'+ image.index+'.jpg',
+                                                            "destination" :  'public/' + image.path,
                                                             "id" : image.id,
                                                             "page" : "portfoliopage"})
                 input(type='submit' value='삭 제').btn-danger
 
           //- outisde your loop(can add infinite image)
 
-          .contents-wrap.col-lg-1 
-            p.text-center Empty ! 
+          .contents-wrap.col-lg-1
             form.form-wrap(action='/manager/uploadimage' method='post', enctype='multipart/form-data')
               input(type='hidden', name= 'data' ,value= { 
                                                           "section" : "foodstyling",
                                                           "destination" : 'public/images/portfoliopage/foodstyling', 
-                                                          "imagename": 'foodstyling'+ foodstyling_gallery.length +'.jpg',                                                        
+                                                          "index" :  foodstyling_gallery.length,                                                     
                                                           "page" : "portfoliopage" } )
               input(type='file', name='imageupload')
               input(type='submit')

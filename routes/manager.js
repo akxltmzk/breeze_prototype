@@ -12,8 +12,8 @@ let storage = multer.diskStorage({
     cb(null, destination)
   },
   filename: function (req, file, cb) {
-    let imagename = JSON.parse(req.body.data).imagename
-    cb(null, imagename)
+   
+    cb(null, file.originalname)
   }
 })
 
@@ -32,14 +32,16 @@ router.post('/manager/createdb',(req,res)=>{
 // upload data 
 router.post('/manager/uploadimage',upload.single('imageupload'),async (req,res)=>{
 
+
+  let filename = req.file.originalname
   let postData = JSON.parse(req.body.data)
 
   if(postData.page === 'intropage')
-    await IntroDBdataUpdate(postData)
+    await IntroDBdataUpdate(postData,filename)
   else if(postData.page === 'aboutpage')
     await AboutDBdataUpdate(postData)
   else if(postData.page === 'portfoliopage')
-    await PortfolioDBdataUpdate(postData)
+    await PortfolioDBdataUpdate(postData,filename)
 
   res.redirect('/manager')     
 })
@@ -151,13 +153,13 @@ function portfoliodb(){
 
 // intro part manager function
 
-function IntroDBdataUpdate(postdata){
+function IntroDBdataUpdate(postdata,filename){
   return new Promise((resolve, reject) => {  
     Page.findOne({'pagename':'intro'},(err,page) => {
       let introimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "intropageimage"})
       introimagelayer.images.push({
         index : postdata.index ,
-        path: 'images/intropage/introimage'+postdata.index+'.jpg'}
+        path: 'images/intropage/'+filename}
       )
       page.save()
       resolve()
@@ -228,15 +230,15 @@ function AboutDBdataDelete(postdata){
 
 // portfolio part manager function
 
-function PortfolioDBdataUpdate(postdata){
+function PortfolioDBdataUpdate(postdata,filename){
   return new Promise((resolve, reject) => {  
     Page.findOne({'pagename':'portfolio'},(err,page) => {
       if(postdata.section === 'foodstyling')
       {
         let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"})
         foodstylingimagelayer.images.push({
-          index : '' ,
-          path: 'images/portfoliopage/foodstyling/'+ postdata.imagename}
+          index : postdata.index ,
+          path: 'images/portfoliopage/foodstyling/'+filename}
         )
         page.save()
       }    
@@ -263,7 +265,6 @@ function PortfolioDBdataDelete(postdata){
     Page.findOne({'pagename':'portfolio'},(err,page) => {
       if(postdata.section === 'foodstyling')
       {
-
         let foodstylingimagelayer = page.contents.content.galleries.find(function (obj) {return obj.name === "foodstyling"}).images   
         let image = foodstylingimagelayer.find(function(obj){return obj.id == postdata.id})
         foodstylingimagelayer.pull(image)
